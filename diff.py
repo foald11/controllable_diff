@@ -108,14 +108,14 @@ def diff(arr1, arr2, comp, result_func):
                     if match_start:
                         match_islands.append(match_count)
                     if len(match_islands) == 0:
-                        most_concentrated_matching = (node,0)
+                        most_concentrated_matching = (reach,0)
                         break
                     concentrated_weight = 0
                     for island in match_islands:
                         concentrated_weight += island
                     concentrated_weight /= len(match_islands)
                     if most_concentrated_matching[1] < concentrated_weight:
-                        most_concentrated_matching = (node,concentrated_weight)
+                        most_concentrated_matching = (reach,concentrated_weight)
             result = most_concentrated_matching[0]
                 
         ds.append(current_d)
