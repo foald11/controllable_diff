@@ -37,7 +37,6 @@ def snake(arr_m, arr_n, comp, node):
     return ret
 
 def diff(arr1, arr2, comp, result_func):
-    print "initialize"
     dict_map = {}
     m = arr1
     n = arr2
@@ -54,15 +53,12 @@ def diff(arr1, arr2, comp, result_func):
     else:
         end_flag = False
 
-    print "/initialize"
-
 
     while not end_flag:
         d_val = len(ds)
         last_d = ds[d_val-1]     #Get last D elements
         current_d = {}
         reach_nodes = []
-        #print d_val,last_d,current_d
         for d in last_d.values():
             if d.mi < len(m)-1:   #Below
                 tmp = Node(d.mi+1,d.ni,d_val,d,d,'b')
@@ -100,7 +96,7 @@ def diff(arr1, arr2, comp, result_func):
                     while node.parent != None:
                         if node.dir == 's':
                             if match_start:
-                                match_count += 0
+                                match_count += 1
                             else:
                                 match_count = 0
                                 match_start = True
@@ -146,7 +142,7 @@ def diff(arr1, arr2, comp, result_func):
 
 
 
-def print_result(result_list,m,n):
+def default_print_result(result_list,m,n):
     i = 0
     mc_count = 0
     ad_count = 0
@@ -167,7 +163,7 @@ def print_result(result_list,m,n):
     return 0
 
 
-def comp_test(a,b):
+def default_compare(a,b):
     if a == b:
         return True
     return False
@@ -181,5 +177,5 @@ if __name__ == "__main__":
         str1 = argv[1]
         str2 = argv[2]
 
-    diff(str1,str2,comp_test,print_result)
+        diff(str1,str2,default_compare,default_print_result)
 
