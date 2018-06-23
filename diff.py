@@ -37,7 +37,6 @@ def snake(arr_m, arr_n, comp, node):
     return ret
 
 def diff(arr1, arr2, comp, result_func):
-    print "initialize"
     dict_map = {}
     m = arr1
     n = arr2
@@ -54,15 +53,12 @@ def diff(arr1, arr2, comp, result_func):
     else:
         end_flag = False
 
-    print "/initialize"
-
 
     while not end_flag:
         d_val = len(ds)
         last_d = ds[d_val-1]     #Get last D elements
         current_d = {}
         reach_nodes = []
-        #print d_val,last_d,current_d
         for d in last_d.values():
             if d.mi < len(m)-1:   #Below
                 tmp = Node(d.mi+1,d.ni,d_val,d,d,'b')
