@@ -100,7 +100,7 @@ def diff(arr1, arr2, comp, result_func):
                     while node.parent != None:
                         if node.dir == 's':
                             if match_start:
-                                match_count += 0
+                                match_count += 1
                             else:
                                 match_count = 0
                                 match_start = True
@@ -181,5 +181,5 @@ if __name__ == "__main__":
         str1 = argv[1]
         str2 = argv[2]
 
-    diff(str1,str2,comp_test,print_result)
+        diff(str1,str2,comp_test,print_result)
 
