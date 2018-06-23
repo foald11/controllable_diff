@@ -142,7 +142,7 @@ def diff(arr1, arr2, comp, result_func):
 
 
 
-def print_result(result_list,m,n):
+def default_print_result(result_list,m,n):
     i = 0
     mc_count = 0
     ad_count = 0
@@ -163,7 +163,7 @@ def print_result(result_list,m,n):
     return 0
 
 
-def comp_test(a,b):
+def default_compare(a,b):
     if a == b:
         return True
     return False
@@ -177,5 +177,5 @@ if __name__ == "__main__":
         str1 = argv[1]
         str2 = argv[2]
 
-        diff(str1,str2,comp_test,print_result)
+        diff(str1,str2,default_compare,default_print_result)
 
