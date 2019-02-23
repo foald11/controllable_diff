@@ -85,6 +85,7 @@ default_print_resultメソッドは，差分の抽出結果を色付きのテキ
 ~~~~
 >>> import diff
 >>>
+>>> #文字列"test"と"tea time"の差分抽出
 >>> diff.diff("test", "tea time", diff.default_compare, diff.default_print_result)
    t
    e
@@ -104,9 +105,11 @@ summary: match=3, add=5, remove=1
 ~~~~
 >>> import diff
 >>>
+>>> #複数行の文字列データを作成
 >>> str1 = ["Hello,", "My Name is", "foald11"]
 >>> str2 = ["Hello,", "My Nicname is", "foald11"]
 >>> 
+>>> #行単位の差分抽出
 >>> diff.diff(str1, str2, diff.default_compare, diff.default_print_result)
    Hello,
  + My Nicname is
@@ -121,6 +124,7 @@ summary: match=2, add=1, remove=1
 ~~~~
 >>> import diff
 >>>
+>>> #ログイン試行のログを模擬したデータの作成
 >>> log1 = [ {"time": "14:00.00" , "msg": "Login Failed: root"}, ]
 >>> log1.append( {"time": "14:00.01" , "msg": "Login Failed: John"} )
 >>> log1.append( {"time": "14:00.02" , "msg": "Login Failed: Michel"} )
@@ -133,12 +137,14 @@ summary: match=2, add=1, remove=1
 >>> log2.append( {"time": "23:58.33" , "msg": "Login Success: Admin"} )
 >>> log2.append( {"time": "23:59.30" , "msg": "Welcom!!"} )
 >>>
+>>> #データの構成を加味した比較用コールバック関数の定義
 >>> def compare_log(a,b):
 ...     if a["msg"] == b["msg"]:
 ...             return True
 ...     return False
 ...
 >>> 
+>>> #msgキーの内容による差分抽出
 >>> diff.diff(log1, log2, compare_log, diff.default_print_result)
    {'msg': 'Login Failed: root', 'time': '23:58.30'}
  - {'msg': 'Login Failed: John', 'time': '14:00.01'}
@@ -153,4 +159,4 @@ summary: match=4, add=1, remove=1
 ~~~~
 
 ## TODO
-エディットグラフの最短経路導出に，最適化の余地が多いにあります．
+エディットグラフの最短経路導出に，最適化の余地があります．
